@@ -1,0 +1,58 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/* .logoImg{
+  width:2rem;
+  padding-right: .5rem;
+}
+.logoText{
+  font-size: xx-large;
+  padding-right: 4rem;
+} */
+/* .mainDiv{
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+} */
+/* .subDiv{
+  display: flex;
+}
+.headerLinks{
+  padding-right: 4rem;
+  padding-top: 1rem;
+}
+.default1{
+  background-color: orange ;
+  padding: 0;
+  padding: 1rem;
+  margin-right: 2rem;
+  border-radius: 10px;
+  border: 1px solid orange;
+}
+.store-badge-icon1{
+  padding-right: 1rem;
+}
+.stores{
+  padding-top: .5rem;
+  padding-left: 20rem;
+}
+.navThreeLines{
+  display: none;
+}
+@media screen and (max-width: 640px) {
+  .logoDiv{
+    width: 10rem;
+  }
+  .subDiv2{
+    display: none;
+  }
+  .stores{
+    display: none;
+  }
+  .navThreeLines{
+    width: 2rem;
+    display: block;
+  }
+
+  
+} */
