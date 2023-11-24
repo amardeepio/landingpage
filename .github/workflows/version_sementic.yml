@@ -25,7 +25,7 @@ jobs:
       with:
         
         tag_prefix: "v"
-        version_format: "${major}.${minor}.$((patch + 1))"
+        version_format: "${major}.${minor}.${((patch + 1))}"
 
    
          
