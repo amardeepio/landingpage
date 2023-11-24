@@ -25,5 +25,5 @@ jobs:
       with:
         
         tag_prefix: "v"
-        version_format: "${major}.${minor}.${patch}.${increment}"
+        version_format: "${major}.${minor}.${patch}"
         
