@@ -38,9 +38,9 @@ jobs:
 
         #Increment the patch version
 
-        ((PATCH++))the new version
+        ((PATCH++))
 
-        #create 
+        #create the new version
 
         NEW_VERSION ="${MAJOR}.${MINOR}.$(PATCH)"
         
