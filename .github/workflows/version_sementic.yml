@@ -31,7 +31,7 @@ jobs:
       id: remove_prefix
       run: |
         TAG_NO_PREFIX=$(echo "${{ steps.get_latest_tag.outputs.TAG }}" | sed 's/^v//')
-        echo echo "::set-output name=TAG_NO_PREFIX::${TAG_NO_PREFIX}"
+        echo "TAG_NO_PREFIX=${TAG_NO_PREFIX}" >> $GITHUB_ENV
 
          
     - name: Extract version components
