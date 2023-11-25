@@ -24,6 +24,8 @@ jobs:
 
     - name: Get the latest tag
       id: get_latest_tag
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         latest_tag=$(git for-each-ref --sort=-creatordate --format='%(refname)' | grep '^refs/tags/')
         if [[ -n "$latest_tag" ]]; then
