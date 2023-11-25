@@ -43,26 +43,14 @@ jobs:
     - name: Increment patch number
       id: increment_patch_number
       run: |
-        if [[ -z "${{ steps.get_latest_tag.outputs.TAG }}" ]]; then
-          echo "Error: TAG is empty or undefined."
-          exit 1
-        fi
+        major=$(echo "$latest_tag" | cut -d '.' -f 1)
+        minor=$(echo "$latest_tag" | cut -d '.' -f 2)
+        patch=$(echo "$latest_tag" | cut -d '.' -f 3)
+        new_patch=$((patch + 1))
 
-        IFS='.' read -ra TAG_PARTS <<< "${{ steps.get_latest_tag.outputs.TAG }}"
-        if [[ ${#TAG_PARTS[@]} -lt 3 ]]; then
-          echo "Error: TAG does not have the expected format (MAJOR.MINOR.PATCH)."
-          exit 1
-        fi
+        new_version="$major.$minor.$(printf "%02d" $new_patch)"
+        echo "New version: $new_version"
 
-        MAJOR="${TAG_PARTS[0]}"
-        MINOR="${TAG_PARTS[1]}"
-        PATCH="${TAG_PARTS[2]}"
-
-        ((PATCH++))
-
-        NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
-
-        echo "::set-output name=NEW_VERSION::${NEW_VERSION}"
        
          
   
