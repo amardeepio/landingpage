@@ -25,8 +25,16 @@ jobs:
     - name: Get the latest tag
       id: get_latest_tag
       run: |
-        latest_tag=$(git for-each-ref --sort=-creatordate --format='%(refname)' | grep '^refs/tags/' | head -n 1)
-        echo "Latest tag: $latest_tag"
+        latest_tags=$(git for-each-ref --sort=-creatordate --format='%(refname)' | grep '^refs/tags/')
+        if [[ -n "$latest_tags" ]]; then
+
+          latest_tag=$(echo "$latest_tags" | head -n 1 | cut -d '/' -f 3)
+          echo "Latest tag: $latest_tag"
+
+          
+        else
+        echo "No tags found"
+        fi
 
 
     - name: Remove "v" prefix from tag
