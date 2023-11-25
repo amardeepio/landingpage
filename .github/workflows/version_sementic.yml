@@ -60,44 +60,6 @@ jobs:
 
 
 
-    - name: Split version number into components
-      id: split_version_number
-      run: |
-        IFS='.' read -ra version <<< "$latest_tag"
-        
-        major="${version[0]}"
-        minor="${version[1]}"
-        patch="${version[2]}"
-
-        echo "TAG: $latest_tag"
-        echo "version: ${version[@]}"
-        echo "MAJOR: $major"
-        echo "MINOR: $minor"
-        echo "PATCH: $patch"
-    
-    - name: Increment patch number
-      id: increment_patch_number
-      run: |
-        new_patch=$((patch + 1))
-
-        NEW_VERSION="${major}.${minor}.${patch}"
-        echo "Latest version: $NEW_VERSION"
-
-        minor=$(printf "%02d" "$minor")
-        new_patch=$(printf "%02d" "$new_patch")
-        new_version="$major.$minor.$new_patch"
-
-        echo "Latest version: $new_version"
-
-
-    - name: Format new version number
-      id: format_new_version_number
-      run: |
-        minor=$(printf "%02d" "$minor")
-        new_patch=$(printf "%02d" "$new_patch")
-        new_version="$major.$minor.$new_patch"
-
-        echo "Latest version: $new_version"
         
       
         
