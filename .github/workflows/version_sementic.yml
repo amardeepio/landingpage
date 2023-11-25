@@ -31,18 +31,27 @@ jobs:
       id: remove_prefix
       run: |
         TAG_NO_PREFIX=$(echo "${{ steps.get_latest_tag.outputs.TAG }}" | sed 's/^v//')
-        echo "::set-output name=TAG_NO_PREFIX::${TAG_NO_PREFIX}"
+        echo echo "::set-output name=TAG_NO_PREFIX::${TAG_NO_PREFIX}"
 
          
     - name: Extract version components
       id: extract_version
       run: |
-        
-        IFS='.' read -ra TAG_PARTS <<< "${{ steps.get_latest_tag.outputs.TAG }}"
+        if [[ -z "${{ steps.remove_prefix.outputs.TAG_NO_PREFIX }}" ]]; then
+          echo "Error: TAG_NO_PREFIX is empty or undefined."
+        exit 1
+        fi
+
+        IFS='.' read -ra TAG_PARTS <<< "${{ steps.remove_prefix.outputs.TAG_NO_PREFIX }}"
+        if [[ ${#TAG_PARTS[@]} -lt 3 ]]; then
+          echo "Error: TAG_NO_PREFIX does not have the expected format (MAJOR.MINOR.PATCH)."
+          exit 1
+        fi
+
+
         MAJOR="${TAG_PARTS[0]}"
         MINOR="${TAG_PARTS[1]}"
         PATCH="${TAG_PARTS[2]}"
-
 
         ((PATCH++))
 
@@ -51,11 +60,12 @@ jobs:
         echo "::set-output name=NEW_VERSION::${NEW_VERSION}"
 
 
-      # Increment the patch version
-      
 
-      # Create the new version
-       
+
+
+        
+        
+        
 
 
 
