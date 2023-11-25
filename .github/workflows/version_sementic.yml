@@ -43,17 +43,17 @@ jobs:
     - name: Split version number into components
       id: split_version_number
       run: |
-        IFS='.' read -ra version <<< "${{ steps.get_latest_tag.outputs.TAG }}"
+        IFS='.' read -ra version <<< "$latest_tag"
         
         major="${version[0]}"
         minor="${version[1]}"
         patch="${version[2]}"
 
-        echo "TAG: ${{ steps.get_latest_tag.outputs.TAG }}"
-        echo "TAG_PARTS: ${TAG_PARTS[@]}"
-        echo "MAJOR: $MAJOR"
-        echo "MINOR: $MINOR"
-        echo "PATCH: $PATCH"
+        echo "TAG: $latest_tag"
+        echo "version: ${version[@]}"
+        echo "MAJOR: $major"
+        echo "MINOR: $minor"
+        echo "PATCH: $patch"
     
     - name: Increment patch number
       id: increment_patch_number
