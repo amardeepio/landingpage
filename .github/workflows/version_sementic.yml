@@ -24,16 +24,18 @@ jobs:
 
     - name: Get the latest tag
       id: get_latest_tag
-      run: echo echo ::set-output name=TAG::$(git describe --tags --abbrev=0)
+      run: |
+        latest_tag=$(git describe --tags --abbrev=0)
+        echo "Latest tag: $latest_tag"
+
 
 
     - name: Remove "v" prefix from tag
       id: remove_prefix
       run: |
-        TAG_NO_PREFIX=$(echo "${{ steps.get_latest_tag.outputs.TAG }}" | sed 's/^v//')
-        echo "TAG_NO_PREFIX=${TAG_NO_PREFIX}" >> $GITHUB_ENV
-        echo "::set-output name=TAG_NO_PREFIX::${TAG_NO_PREFIX}"
-
+        tag="${latest_tag#v}"
+        echo "Tag without 'v' prefix: $tag"
+       
          
     - name: Extract version components
       id: extract_version
