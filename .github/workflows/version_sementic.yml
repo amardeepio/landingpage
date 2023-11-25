@@ -51,11 +51,11 @@ jobs:
         echo "MINOR: $minor"
         echo "PATCH: $patch"
 
-        ((patch++))
+        patch=$((patch + 1))
 
-        new_version= "${major}.${minor}.${patch}"
+        new_version = ${major}.${minor}.${patch}"
 
-        echo "::set-output name=NEW_VERSION::${NEW_VERSION}"
+        echo "New version is: $new_version"
 
       
 
