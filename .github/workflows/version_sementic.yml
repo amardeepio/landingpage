@@ -41,15 +41,22 @@ jobs:
 
         IFS='.' read -ra version <<< "$latest_tag"
         
-        major="${version[0]}"
-        minor="${version[1]}"
-        patch="${version[2]}"
+        MAJOR="${version[0]}"
+        MINOR="${version[1]}"
+        PATCH="${version[2]}"
 
         echo "TAG: $latest_tag"
         echo "version: ${version[@]}"
-        echo "MAJOR: $major"
-        echo "MINOR: $minor"
-        echo "PATCH: $patch"
+        echo "MAJOR: $MAJOR"
+        echo "MINOR: $MINOR"
+        echo "PATCH: $PATCH"
+
+        PATCH=$((PATCH + 1))
+
+        # Create the new version
+        NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
+      
+        echo "::set-output name=NEW_VERSION::${NEW_VERSION}"
 
         
 
