@@ -25,23 +25,22 @@ jobs:
     - name: Get the latest tag
       id: get_latest_tag
       run: |
-        latest_tags=$(git for-each-ref --sort=-creatordate --format='%(refname)' | grep '^refs/tags/')
-        if [[ -n "$latest_tags" ]]; then
+        latest_tag=$(git for-each-ref --sort=-creatordate --format='%(refname)' | grep '^refs/tags/')
+        if [[ -n "$latest_tag" ]]; then
 
-          latest_tag=$(echo "$latest_tags" | head -n 1 | cut -d '/' -f 3)
+          latest_tag=$(echo "$latest_tag" | head -n 1 | cut -d '/' -f 3)
           echo "Latest tag: $latest_tag"
 
-          
+
         else
         echo "No tags found"
         fi
 
+        latest_tag="${latest_tag#v}"
+        echo "Latest tag: $latest_tag"
 
-    - name: Remove "v" prefix from tag
-      id: remove_prefix
-      run: |
-        tag="${latest_tag#v}"
-        echo "Tag without 'v' prefix: $tag"
+
+    
        
          
     - name: Extract version components
