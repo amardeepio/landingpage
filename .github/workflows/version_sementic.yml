@@ -25,9 +25,8 @@ jobs:
     - name: Get the latest tag
       id: get_latest_tag
       run: |
-        latest_tag=$(git describe --tags --abbrev=0)
+        latest_tag=$(git for-each-ref --sort=-creatordate --format='%(refname)' | grep '^refs/tags/' | head -n 1)
         echo "Latest tag: $latest_tag"
-
 
 
     - name: Remove "v" prefix from tag
