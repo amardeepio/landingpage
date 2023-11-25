@@ -83,6 +83,12 @@ jobs:
         NEW_VERSION="${major}.${minor}.${patch}"
         echo "Latest version: $NEW_VERSION"
 
+        minor=$(printf "%02d" "$minor")
+        new_patch=$(printf "%02d" "$new_patch")
+        new_version="$major.$minor.$new_patch"
+
+        echo "Latest version: $new_version"
+
 
     - name: Format new version number
       id: format_new_version_number
