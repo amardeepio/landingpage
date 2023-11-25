@@ -52,7 +52,7 @@ jobs:
         echo "PATCH: $patch"
 
 
-        new_patch=$((patch + 1))
+        ((patch++))
 
         NEW_VERSION="${major}.${minor}.${patch}"
         echo "Latest version: $NEW_VERSION"
