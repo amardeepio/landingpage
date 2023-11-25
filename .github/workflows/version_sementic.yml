@@ -54,6 +54,10 @@ jobs:
       run: |
         new_patch=$((patch + 1))
 
+        NEW_VERSION="${major}.${minor}.${patch}"
+        echo "Latest version: $NEW_VERSION"
+
+
     - name: Format new version number
       id: format_new_version_number
       run: |
