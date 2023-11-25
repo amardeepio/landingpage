@@ -36,16 +36,19 @@ jobs:
         MINOR="${TAG_PARTS[1]}"
         PATCH="${TAG_PARTS[2]}"
 
-        #Increment the patch version
 
         ((PATCH++))
 
-        #create the new version
+        NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
 
-        NEW_VERSION ="${MAJOR}.${MINOR}.$(PATCH)"
-        
         echo "::set-output name=NEW_VERSION::${NEW_VERSION}"
 
+
+      # Increment the patch version
+      
+
+      # Create the new version
+       
 
 
 
