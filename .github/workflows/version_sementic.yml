@@ -25,8 +25,13 @@ jobs:
     - name: Get the latest tag
       id: get_latest_tag
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        MY_EMAIL: amars123456@gmail.com
+        MY_NAME: amardeepio
+        
       run: |
+        git config --global user.email $MY_EMAIL
+        git config --global user.name $MY_NAME
+        
         latest_tag=$(git for-each-ref --sort=-creatordate --format='%(refname)' | grep '^refs/tags/')
         if [[ -n "$latest_tag" ]]; then
 
@@ -66,11 +71,7 @@ jobs:
 
         #push the tags
 
-    - name: Push the new tag
-      run: |
-          git push origin --follow-tags
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        git push origin "$NEW_VERSION"
 
 
 
