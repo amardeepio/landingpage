@@ -32,6 +32,7 @@ jobs:
       run: |
         TAG_NO_PREFIX=$(echo "${{ steps.get_latest_tag.outputs.TAG }}" | sed 's/^v//')
         echo "TAG_NO_PREFIX=${TAG_NO_PREFIX}" >> $GITHUB_ENV
+        echo "::set-output name=TAG_NO_PREFIX::${TAG_NO_PREFIX}"
 
          
     - name: Extract version components
