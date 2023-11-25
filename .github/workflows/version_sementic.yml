@@ -27,11 +27,4 @@ jobs:
         tag_prefix: "v"
         version_format: "${major}.${minor}.${increment}"
 
-    - name: Get next version
-      uses: reecetech/version-increment@2023.9.3
-      id: version
-      with:
-
-        scheme: semver
-        increment: patch
-         
+    
