@@ -27,10 +27,15 @@ jobs:
       run: echo echo ::set-output name=TAG::$(git describe --tags --abbrev=0)
 
 
+    - name: Remove "v" prefix from tag
+      id: remove_prefix
+      run: echo ::set-output name=TAG_NO_PREFIX::${{ steps.get_latest_tag.outputs.TAG#v }}
+
          
     - name: Extract version components
       id: extract_version
       run: |
+        
         IFS='.' read -ra TAG_PARTS <<< "${{ steps.get_latest_tag.outputs.TAG }}"
         MAJOR="${TAG_PARTS[0]}"
         MINOR="${TAG_PARTS[1]}"
