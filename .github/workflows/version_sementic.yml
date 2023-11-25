@@ -51,11 +51,7 @@ jobs:
         echo "MINOR: $minor"
         echo "PATCH: $patch"
 
-        patch=$((patch + 1))
-
-        new_version = ${major}.${minor}.${patch}"
-
-        echo "New version is: $new_version"
+        
 
       
 
