@@ -29,7 +29,9 @@ jobs:
 
     - name: Remove "v" prefix from tag
       id: remove_prefix
-      run: echo ::set-output name=TAG_NO_PREFIX::${{ steps.get_latest_tag.outputs.TAG#v }}
+      run: |
+        TAG_NO_PREFIX=$(echo "${{ steps.get_latest_tag.outputs.TAG }}" | sed 's/^v//')
+        echo "::set-output name=TAG_NO_PREFIX::${TAG_NO_PREFIX}"
 
          
     - name: Extract version components
