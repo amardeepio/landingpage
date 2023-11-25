@@ -22,11 +22,9 @@ jobs:
 
    
 
-    - name: Get next version
-      uses: reecetech/version-increment@2023.9.3
-      id: version
-      with:
+    - name: Get the latest tag
+      id: get_latest_tag
+      run: echo echo ::set-output name=TAG::$(git describe --tags --abbrev=0)
 
-        scheme: semver
-        increment: patch
+
          
