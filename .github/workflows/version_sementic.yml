@@ -39,6 +39,20 @@ jobs:
         latest_tag="${latest_tag#v}"
         echo "Latest tag: $latest_tag"
 
+        IFS='.' read -ra version <<< "$latest_tag"
+        
+        major="${version[0]}"
+        minor="${version[1]}"
+        patch="${version[2]}"
+
+        echo "TAG: $latest_tag"
+        echo "version: ${version[@]}"
+        echo "MAJOR: $major"
+        echo "MINOR: $minor"
+        echo "PATCH: $patch"
+
+
+
 
     - name: Split version number into components
       id: split_version_number
