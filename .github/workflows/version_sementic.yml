@@ -56,7 +56,7 @@ jobs:
         # Create the new version
         NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
       
-        echo "::set-output name=NEW_VERSION::${NEW_VERSION}"
+        echo "Latest version is: $NEW_VERSION"
 
         
 
