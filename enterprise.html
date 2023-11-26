@@ -45,7 +45,9 @@ emailjs.init("VQSTEwWopYh2HmrmI");
       <div class="modal-content flex ml-0 pl-0 mt-0 pt-0 justify-between bg-gray-900 bg-opacity-60 w-screen h-screen text-white p-6 rounded-lg">
         <div class="text-start w-1/3 ml-0 pl-10 pr-10  sm:w-1/6 bg-gray-950">
           <div class="pr-6 mt-8 cursor-pointer hover:border-b-4 ">Roadmap</div>
-          <div class="pr-6 mt-8 cursor-pointer hover:border-b-4  ">About Us</div>
+          <div class="pr-6 mt-8 cursor-pointer hover:border-b-4  ">
+            <a href="https://cryptonomic.tech/" target="_blank">About Us</a>
+          </div>
           <div class="mt-8 cursor-pointer pr-4 hover:border-b-4 ">Enterprise</div>
           <div class="pr-6 mt-8 cursor-pointer hover:border-b-4 ">Help</div>
           <!-- <button id="closeModalBtn" class="mt-4 text-black w-full bg-gray-300 p-2 rounded-lg">Close</button> -->
@@ -73,7 +75,9 @@ emailjs.init("VQSTEwWopYh2HmrmI");
           
           <div class="hidden xl:flex pl-10 pt-1 text-xl space-x-6">
             <div class="pr-6">Roadmap</div>
-            <div class="pr-6" onclick="openMainPage()">About Us.</div>
+            <div class="pr-6 hover:border-b-4">
+              <a href="https://cryptonomic.tech/" target="_blank">About Us</a>
+            </div>
           </div>
         </div>
         <div class="hidden sm:flex sm:flex-row sm:mt-0 xl:pl-96">
@@ -126,7 +130,7 @@ emailjs.init("VQSTEwWopYh2HmrmI");
           <span id="emailError" class="error"></span>
           <label class="text-xl pt-4" for="input">Message</label>
           <textarea class="border-2 rounded-xl text-2xl" id="message" name="Message" cols="20" rows="5"></textarea>
-          <button id="button_sub" class="border bg-orange-500 text-white text-lg rounded-lg w-1/3 mt-4 p-4" type="submit" onclick="sendEmail()" disabled>Send Message</button>
+          <button id="button_sub" class="border bg-orange-500 text-white text-lg rounded-lg w-1/3 mt-4 p-4  transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" type="submit" onclick="sendEmail()" disabled>Send Message</button>
             
           </div>
 
@@ -216,9 +220,7 @@ function validateEmail() {
     const closeModalBtn = document.getElementById('closeModalBtn');
     const closeModalBtn1 = document.getElementById('closeModalBtn1');
     const phoneMockupSection = document.querySelector('.phone-mockup');
-    function openMainPage() {
-                window.location.href = 'index.html';
-        }
+    
     const toggleNavVisibility = () => {
       navThreeLines.style.display = navThreeLines.style.display === 'none' ? '' : 'none';
       navThreeLines1.style.display = navThreeLines1.style.display === 'none' ? '' : 'none';
