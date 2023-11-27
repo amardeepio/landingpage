@@ -34,22 +34,26 @@ jobs:
         
         latest_tag=$(git for-each-ref --sort=-creatordate --format='%(refname)' | grep '^refs/tags/')
         if [[ -n "$latest_tag" ]]; then
+
           latest_tag=$(echo "$latest_tag" | head -n 1 | cut -d '/' -f 3)
           echo "Latest tag: $latest_tag"
-        else
+
+          latest_tag=$(echo "$latest_tag" | grep "^v[0-9]+\.[0-9]+\.[0-9]+$")
+          
+          if [[ -n "$latest_tag" ]]; then
+            echo "Latest tag: $latest_tag"
+
+          else
+            echo "no tags found in desired format"
+            set -e
+          fi
+        else 
           echo "No tags found"
-          exit 1
+          set -e
         fi
 
-        latest_tag="${latest_tag#v}"
-        echo "Latest tag: $latest_tag"
 
-        IFS='.' read -ra version <<< "$latest_tag"
-
-        if [[ ! -n "${version[0]}" ]] || [[ ! -n "${version[1]}" ]] || [[ ! -n "${version[2]}" ]]; then
-          echo "Invalid semantic version format: $latest_tag"
-          exit 1
-        fi
+       
 
         latest_tag="${latest_tag#v}"
         echo "Latest tag: $latest_tag"
@@ -80,3 +84,4 @@ jobs:
         #push the tags
 
         git push origin "$NEW_VERSION"
+
