@@ -33,20 +33,23 @@ jobs:
         git config --global user.name $MY_NAME
         
         latest_tag=$(git for-each-ref --sort=-creatordate --format='%(refname)' | grep '^refs/tags/')
+        echo "Raw tags: $latest_tag"
         if [[ -n "$latest_tag" ]]; then
-        latest_tag=$(echo "$latest_tag" | head -n 1 | cut -d '/' -f 3)
-        # Filter tags based on the desired format using awk
-        latest_tag=$(echo "$latest_tag" | awk '/^v[0-9]+\.[0-9]+\.[0-9]+$/')
-        if [[ -n "$latest_tag" ]]; then
-          echo "Latest tag: $latest_tag"
-          # Proceed with the rest of the steps using the filtered tag
+          latest_tag=$(echo "$latest_tag" | head -n 1 | cut -d '/' -f 3)
+          echo "Filtered tags: $latest_tag"
+          # Filter tags based on the desired format using awk
+          latest_tag=$(echo "$latest_tag" | awk '/^v[0-9]+\.[0-9]+\.[0-9]+$/')
+          echo "Filtered again: $latest_tag"
+          if [[ -n "$latest_tag" ]]; then
+            echo "Latest tag: $latest_tag"
+            # Proceed with the rest of the steps using the filtered tag
+          else
+            echo "No tags found in the desired format"
+            exit 1  # Fail the job if no tags in the desired format are found
+          fi
         else
-          echo "No tags found in the desired format"
-          exit 1  # Fail the job if no tags in the desired format are found
-        fi
-        else
-        echo "No tags found"
-        exit 1
+          echo "No tags found"
+          exit 1
         fi
      
 
