@@ -38,23 +38,10 @@ jobs:
           latest_tag=$(echo "$latest_tag" | head -n 1 | cut -d '/' -f 3)
           echo "Latest tag: $latest_tag"
 
-          latest_tag=$(echo "$latest_tag" | grep "^v[0-9]+\.[0-9]+\.[0-9]+$")
-          echo "Latest tag after validation: $latest_tag"
-          
-          if [[ -n "$latest_tag" ]]; then
-            echo "Latest tag: $latest_tag"
 
-          else
-            echo "no tags found in desired format"
-            set -e
-          fi
-        else 
-          echo "No tags found"
-          set -e
+        else
+        echo "No tags found"
         fi
-
-
-       
 
         latest_tag="${latest_tag#v}"
         echo "Latest tag: $latest_tag"
@@ -86,3 +73,6 @@ jobs:
 
         git push origin "$NEW_VERSION"
 
+
+
+        
