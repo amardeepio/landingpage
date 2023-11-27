@@ -35,8 +35,8 @@ jobs:
         latest_tag=$(git for-each-ref --sort=-creatordate --format='%(refname)' | grep '^refs/tags/')
         echo "Raw tags: $latest_tag"
         if [[ -n "$latest_tag" ]]; then
-          latest_tag=$(echo "$latest_tag" | head -n 1 | cut -d '/' -f 3)
-          latest_tag=$(echo "$latest_tag" | grep -oP 'v[0-9]+\.[0-9]+\.[0-9]+$')
+          latest_tag=$(echo "$latest_tag" | head -n 1 | cut -d '/' -f 3 | grep -oP 'v[0-9]+\.[0-9]+\.[0-9]+$')
+          
           echo "Filtered tags: $latest_tag"
           if [[ -n "$latest_tag" ]]; then
             echo "Latest tag: $latest_tag"
