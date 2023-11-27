@@ -44,6 +44,10 @@ jobs:
           echo "No tags found in the desired format"
           exit 1  # Fail the job if no tags in the desired format are found
         fi
+        else
+        echo "No tags found"
+        exit 1
+        fi
      
 
         latest_tag="${latest_tag#v}"
