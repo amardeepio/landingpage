@@ -36,11 +36,19 @@ jobs:
         if [[ -n "$latest_tag" ]]; then
 
           latest_tag=$(echo "$latest_tag" | head -n 1 | cut -d '/' -f 3)
-          echo "Latest tag: $latest_tag"
+          latest_tag=$(echo "$latest_tag" | grep "^v[0-9]+\.[0-9]+\.[0-9]+$")
+          if [[ -n "$latest_tag" ]]; then
+
+            echo "Latest tag: $latest_tag"
+          
+          else
+            echo "No tags found in the desired format"
+
+          fi
 
 
         else
-        echo "No tags found"
+          echo "No tags found"
         fi
 
         latest_tag="${latest_tag#v}"
