@@ -32,8 +32,8 @@ jobs:
         git config --global user.email $MY_EMAIL
         git config --global user.name $MY_NAME
         
-        git fetch --tags
-        latest_tag=$(git tag -l 'v[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | head -n 1)
+        
+        latest_tag=$(git for-each-ref --sort=-creatordate --format='%(refname)' | grep '^refs/tags/')
         if [[ -n "$latest_tag" ]]; then
 
           latest_tag=$(git tag -l 'v[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | head -n 1 | cut -d '/' -f 3 )
