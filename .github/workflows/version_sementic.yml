@@ -64,6 +64,13 @@ jobs:
       
         echo "Latest version is: $NEW_VERSION"
 
+        if git rev-parse -q --verify "refs/tags/$latest_tag" >/dev/null; then
+            git tag -a -m "Incrementing existing version to $NEW_VERSION" "$latest_tag"
+        else
+            # Create the new tag
+            git tag -a -m "Incrementing patch version to $NEW_VERSION" "$NEW_VERSION"
+        fi
+
         # create the new tag 
 
         git tag -a -m "Incrementing patch version to $NEW_VERSION" "$NEW_VERSION"
