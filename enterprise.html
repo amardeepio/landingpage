@@ -2,6 +2,8 @@
 <html lang="en" class="font-body-xl-medium">
   <head>
     <meta charset="UTF-8" />
+
+
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
@@ -14,46 +16,42 @@
 
             sans: ['Inter'],
           },
+
+          fontSize: {
+        "8xl": ["4.8rem", { lineHeight: "1" }],
+        "9xl": ["3.5rem", { lineHeight: "1" }],
+      },
           
         },
       }
     }
 
     </script>
-    
 
-<script type="text/javascript"
-src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-</script>
-<script type="text/javascript">
-(function(){
-emailjs.init("VQSTEwWopYh2HmrmI");
-})();
-</script>
-
-<script src="index.js"></script>
-
-
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Persimmon</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" />
-    
+   
   </head>
-  <body class="font-body-xl-medium">
-    <div id="myModal" class="modal hidden fixed bg-gray-500 mt-0 pt-0 bg-opacity-75 mb-64  flex justify-center items-center">
-      <div class="modal-content flex ml-0 pl-0 mt-0 pt-0 justify-between bg-gray-900 bg-opacity-60 w-screen h-screen text-white p-6 rounded-lg">
-        <div class="text-start w-1/3 ml-0 pl-10 pr-10  sm:w-1/6 bg-gray-950">
+  <body class="font-body-xl-medium mt-0 pt -0">
+    <div id="myModal" class="modal hidden bg-gray-500 mt-0 pt-0 bg-opacity-90 mb-64  flex justify-center items-center">
+      <div class="modal-content flex ml-0 pl-0 mt-0 pt-0 justify-between bg-gray-900 bg-opacity-75 w-screen h-screen text-white p-6 rounded-lg">
+        <div class="text-start w-1/3 ml-0 pl-10 pt-28 pr-10  sm:w-1/6">
           <div class="pr-6 mt-8 cursor-pointer hover:border-b-4 ">Roadmap</div>
-          <div class="pr-6 mt-8 cursor-pointer hover:border-b-4  ">
-            <a href="https://cryptonomic.tech/" target="_blank">About Us</a>
-          </div>
-          <div class="mt-8 cursor-pointer pr-4 hover:border-b-4 ">Enterprise</div>
+          <div class=" mt-8 cursor-pointer hover:border-b-4  ">About Us</div>
+          <div class="mt-8 cursor-pointer pr-4 hover:border-b-4 " onclick="openEnterprise()">Enterprise</div>
           <div class="pr-6 mt-8 cursor-pointer hover:border-b-4 ">Help</div>
           <!-- <button id="closeModalBtn" class="mt-4 text-black w-full bg-gray-300 p-2 rounded-lg">Close</button> -->
         </div>
         <div>
+          <img class="w-60 pt-10" alt="" src="./public/MainLogo.png" />
+        </div>
+        <div>
           <img id="closeModalBtn" src="./public/cross.svg" class="w-10 mr-10 sm:mr-20 cursor-pointer pt-10" alt="">
+          <img src="./public/plus-sign.png" class="w-4 mr-10 sm:mr-20 cursor-pointer pt-44" alt="">
+          <img src="./public/plus-sign.png" class="w-4 mr-10 sm:mr-20 cursor-pointer pt-10" alt="">
         </div>
       </div>
     </div>
@@ -73,18 +71,16 @@ emailjs.init("VQSTEwWopYh2HmrmI");
             />
           </div>
           
-          <div class="hidden xl:flex pl-10 pt-1 text-xl space-x-6">
-            <div class="pr-6">Roadmap</div>
-            <div class="pr-6 hover:border-b-4">
-              <a href="https://cryptonomic.tech/" target="_blank">About Us</a>
-            </div>
+          <div class="hidden xl:flex pl-28 pt-1 text-xl space-x-6">
+            <div class="font-semibold w-32 text-[#111827] pt-2 pr-6">Roadmap</div>
+            <div class="font-semibold w-32 text-[#111827] pt-2 pr-6">About Us</div>
+            <div class="font-semibold w-32 p-2 pl-4 pr-4 border rounded-lg text-white mr-4 bg-[#E16B31]" onclick="openEnterprise()">Enterprise</div>
           </div>
         </div>
-        <div class="hidden sm:flex sm:flex-row sm:mt-0 xl:pl-96">
-          <div class=" pl-4 pr-4 border rounded-xl text-white text-lg mr-20 p-3 bg-orange-500">Enterprise Solutions</div>
-          <img class="pr-4 mb-4 sm:mb-0" alt="" src="./public/store-badge2.svg" />
-          <img class="pr-4" alt="" src="./public/store-badge3.svg" />
-        </div>
+        <!-- <div class="hidden sm:flex sm:flex-row sm:mt-0 xl:pl-96">
+          <div class=" pl-4 w-58 pr-4 border rounded-xl text-white text-lg mr-20 p-3 bg-[#E16B31]">Enterprise Solutions</div>
+          <img class="pr-4 w-52" alt="" src="./public/store-badge3.svg" />
+        </div> -->
         <div>
           <img
             id="navThreeLines1"
@@ -95,124 +91,120 @@ emailjs.init("VQSTEwWopYh2HmrmI");
         </div>
       </div>  
 
-      <div class="xl:flex xl:justify-evenly mt-20">
-        <div class="xl:flex xl:justify-evenly xl:mt-10">
-          <div class="header mt-20 m-2 text-left md:text-center xl:text-left">
-            <h1 class="text-3xl md:text-6xl font-bold">Enterprise Solutions</h1>
-            <div class="text-xl mt-4">
-              Lorem Ipsum is simply dummy text of the printing and 
+      <div class="xl:flex xl:justify-between xl:ml-32 mt-20">
+        <div class="xl:flex xl:justify-between">
+          <div class="header m-2 text-left  xl:text-left">
+            <h1 class="text-3xl md:text-5xl font-bold text-[#111827]">Enterprise</h1>
+            <h1 class="text-lg md:text-2xl mt-10 font-semibold text-[#E16B31]">The Problem</h1>
+            <div class="text-[2.7rem] leading-10 mt-4 text-[#374151] ">
+              Financial institutions and businesses <span class="lg:hidden">hold increasingly large and growing amounts of digital assets.</span>
             </div>
-            <div class="text-xl">
-              typesetting industry. Lorem Ipsum has been the industry's 
+            <div class="text-[2.7rem] hidden lg:block leading-10 text-[#374151] ">
+              hold increasingly large and growing
             </div>
-            <div class="text-xl">
-              standard dummy text ever since the 1500s, when an unknown 
+            <div class="text-[2.7rem] hidden lg:block leading-10 text-[#374151] ">
+              amounts of digital assets.
             </div>
-            <div class="text-xl">
-              printer took a galley of type and scrambled it to make a type 
-            </div>
-            <div class="text-xl">
-              specimen book.
-            </div>
+            <div class="text-[#374151] text-2xl mt-8 ">
+              These assets are often distributed across multiple platforms and locations, <span class="lg:hidden">making them challenging to monitor and secure.</span> </div>
+              <div class="text-[#374151] hidden lg:block text-2xl ">making them challenging to monitor and secure.</div>
+            <div class="text-[#374151] text-2xl mt-8 ">
+              Traditional asset tracking methods are often manual and time-consuming,<span class="lg:hidden">leaving organizations vulnerable to theft, loss, and regulatory violations.</span> </div>
+             <div class="text-[#374151] hidden lg:block text-2xl "> leaving organizations vulnerable to theft, loss, and regulatory violations.</div>
           </div>
         </div>
-
-        <div class="border-2 rounded-xl p-10">
-          
-          <h1 class="text-4xl font-black">Contact Us</h1>
-          <p class="p-1 text-lg">Have any questions ? Fill out the form below and our team will reach out .</p>
-          <div id="form_1" class="flex flex-col pt-6">
-            
-            <label class="text-xl"  for="input">Name</label>
-          <input class="border-2 rounded-lg w-2/3 text-2xl" id="name" type="text">
-          <label class="text-xl pt-4" for="input">Email Address</label>
-          <input class="border-2 rounded-lg text-2xl" id="email" type="email" oninput="validateEmail()">
-          <span id="emailError" class="error"></span>
-          <label class="text-xl pt-4" for="input">Message</label>
-          <textarea class="border-2 rounded-xl text-2xl" id="message" name="Message" cols="20" rows="5"></textarea>
-          <button id="button_sub" class="border bg-orange-500 text-white text-lg rounded-lg w-1/3 mt-4 p-4  transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" type="submit" onclick="sendEmail()" disabled>Send Message</button>
-            
-          </div>
-
-        
+        <div class="mt-28 md:ml-32 xl:ml-0 xl:mr-60 flex flex-col justify-center">
+        <img class="w-72" src="public/spiral.png" alt="">
+        <img class="ml-32 w-72" src="public/spiral.png" alt="">
+        <img class="w-72" src="public/spiral.png" alt="">
         </div>
       </div>
-    </div>
-
-      
-      <div class="bg-black text-white pl-4 sm:flex sm:justify-between sm:pl-10 sm:pr-10">
-        <div class="left-section">
-          <div class="logo-child"></div>
-          <div class="links">
-            <div>
-              <img src="./public/logo.png" class="w-8 pt-4" alt="">
-            </div>
-            <div class="flex justify-around mt-4">
-              <div class="roadmap">Roadmap</div>
-              <div class="roadmap">About Us</div>
-              <div class="roadmap">Enterprise</div>
-            </div>
+      <div class="xl:flex xl:justify-between ml-20 mt-20">
+        <!-- <div class="xl:flex xl:justify-between">
+         
+        </div> -->
+        <div class="mt-16 mr-20">
+          <div class="text-2xl font-extrabold xl:pl-28 flex ">
+            <div class="text-6xl">.</div>
+            <div class="pt-8 pl-6 ">Integrates with Enterprise SSO</div>
           </div>
-          <div class="mt-8">
-            © 2023 Persimmon Alerts. All rights reserved.
+          <div class="text-2xl font-extrabold xl:pl-28 flex ">
+            <div class="text-6xl">.</div>
+            <div class="pt-8 pl-6 ">Can be seamlessly installed on premises</div>
+          </div>
+          <div class="text-2xl font-extrabold xl:pl-28 flex ">
+            <div class="text-6xl">.</div>
+            <div class="pt-8 pl-6 ">Shared traking of enterprise assets</div>
           </div>
         </div>
-        <div class="mt-8 pb-4">
-          <div class="get-the-app">Get the App</div>
-          <img class="store-badge-icon2 mt-4" alt="" src="./public/store-badge4.svg" />
-          <img class="store-badge-icon2 mt-4" alt="" src="./public/store-badge5.svg" />
-        </div>
+        <div class="header m-2 mt-20 xl:mt-0 text-left md:text-center xl:text-left">
+          <h1 class="text-lg md:text-2xl mt-10 font-semibold text-[#E16B31]">The Solution</h1>
+          <div class="text-[2.7rem] leading-10 mt-4 text-[#374151]">
+            
+            Persimmon's enterprise solution
+          </div>
+          <div class=" text-[2.7rem] leading-10 text-[#374151]">
+            provides a unified and consolidated
+          </div>
+          <div class=" text-[2.7rem] leading-10 text-[#374151]">
+            platform for monitoring and securing
+          </div>
+          <div class="text-[2.7rem] leading-10 text-[#374151] ">
+            digital assets.
+          </div>
+          <div class="text-[#374151] mt-4 ">
+            <div class="text-[#374151] text-2xl mt-8">Persimmon's solution seamlessly Integrates with enterprise SSO,</div>
+            <div class="text-[#374151] text-2xl">enabling organizations to quickly deploy and manage their</div>
+            <div class="text-[#374151] text-2xl">digital asset monitoring capabilities.</div>
       </div>
     </div>
-
-<script>
-
-
-function validateEmail() {
-      const emailInput = document.getElementById('email');
-      const emailError = document.getElementById('emailError');
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      if (emailPattern.test(emailInput.value)) {
-        emailError.textContent = ''; // Clear the error message
-      } else {
-        emailError.textContent = 'Invalid email address';
-      }
-    }
-
-
-    document.getElementById('form_1').addEventListener('submit', function (event) {
-      const emailInput = document.getElementById('email');
-      const emailError = document.getElementById('emailError');
-      const buttonSubmit = document.getElementById("button_sub");
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      if (!emailPattern.test(emailInput.value)) {
-        emailError.textContent = 'Invalid email address';
-        buttonSubmit.disabled = true;
-        event.preventDefault(); // Prevent form submission
-      }
-    });
+    </div>
+    <div class="flex justify-center pt-20 pl-28 pb-20">
+      <img src="public/separator.png" alt="">
+    </div>
+    <div class="m-2 text-center">
+      <div class="text-3xl mt-4 text-[#374151] ">
+        With Persimmon, Financial institutions and businesses
+      </div>
+      <div class="text-3xl text-[#374151] ">
+        can confidently safeguard their digital assets and
+      </div>
+      <div class="text-3xl text-[#374151] ">
+        ensure financial integrity
+      </div>    
+</div>
+<div class="flex justify-center text-2xl font-bold pt-28 pb-28">
+  For inquiries, please email us at <a class="underline pl-2" href="mailto:info@cryptonomic.tech">info@cryptonomic.tech</a>.
+</div>
 
 
-
-  document.getElementById("form_1").addEventListener("input", function() {
-
-
-      const nameInput = document.getElementById("name");
-      const emailInput= document.getElementById("email");
-      const messageInput=  document.getElementById("message");
-      const buttonSubmit = document.getElementById("button_sub");
 
       
+<div class="bg-black text-white sm:flex sm:justify-between md:h-[18rem] pt-16 sm:pl-20 sm:pr-10">
+  <div class="left-section">
+    <div class="logo-child"></div>
+    <div class="links">
+      <div>
+        <img src="./public/logo.png" class="w-8 pt-4" alt="">
+      </div>
+      <div class="flex justify-between mt-4">
+        <div class="roadmap">Roadmap</div>
+        <div class="roadmap">About Us</div>
+        <div class="roadmap">Enterprise</div>
+      </div>
+    </div>
+    <div class="mt-8 text-[#D1D5DB]">
+      © 2023 Persimmon Alerts. All rights reserved.
+    </div>
+  </div>
+  <div class="mt-8 mr-20 pb-4">
+    <div class="get-the-app text-xl font-semibold text-[#D1D5DB]">Get the App</div>
+    <img class="store-badge-icon2 w-44 mt-4" alt="" src="./public/store-badge4.svg" />
+    <!-- <img class="store-badge-icon2 mt-4" alt="" src="./public/store-badge5.svg" /> -->
+  </div>
+</div>
+    </div>
 
-      if (nameInput.value.trim() && emailInput.value.trim() && messageInput.value.trim()) {
-        buttonSubmit.disabled = false;
-      } else {
-        buttonSubmit.disabled = true;
-      }
-    });
-</script>
   <script>
     const navThreeLines = document.getElementById('navThreeLines');
     const navThreeLines1 = document.getElementById('navThreeLines1');
@@ -220,7 +212,9 @@ function validateEmail() {
     const closeModalBtn = document.getElementById('closeModalBtn');
     const closeModalBtn1 = document.getElementById('closeModalBtn1');
     const phoneMockupSection = document.querySelector('.phone-mockup');
-    
+    function openMainPage() {
+                window.location.href = 'index.html';
+        }
     const toggleNavVisibility = () => {
       navThreeLines.style.display = navThreeLines.style.display === 'none' ? '' : 'none';
       navThreeLines1.style.display = navThreeLines1.style.display === 'none' ? '' : 'none';
@@ -251,10 +245,6 @@ function validateEmail() {
     });
   </script>
   
-
- 
-   
-   
-
+  
   </body>
 </html>
