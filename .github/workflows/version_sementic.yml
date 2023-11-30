@@ -2,12 +2,10 @@ name: Persimmon Versioning
 
 on:
   pull_request:
-    branches: 
+    branches:
       - main
     types:
       - closed
-   
-
 
 jobs:
   if_merged:
@@ -15,67 +13,64 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0 
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-   
+      - name: Get the latest tag
+        id: get_latest_tag
+        env:
+          MY_EMAIL: ${{ secrets.MY_EMAIL }}
+          MY_NAME: ${{ secrets.MY_NAME }}
 
-    - name: Get the latest tag
-      id: get_latest_tag
-      env:
-        MY_EMAIL: ${{ secrets.MY_EMAIL }}
-        MY_NAME: ${{ secrets.MY_NAME }}
-        
-      run: |
-        git config  user.email $MY_EMAIL
-        git config  user.name $MY_NAME
-        
-        
-        latest_tag=$(git for-each-ref --sort=-creatordate --format='%(refname)' | grep -oP 'refs/tags/v[0-9]+\.[0-9]+\.[0-9]+$')
-        if [[ -n "$latest_tag" ]]; then
-          latest_tag=$(echo "$latest_tag" | sed 's|^refs/tags/||')  # Remove the 'refs/tags/' prefix
-          echo "Latest tag: $latest_tag"
-        else
-          echo "No tags found in the desired format"
-          exit 1  # Fail the job if no tags in the desired format are found
-        fi
+        run: |
+          git config user.email $MY_EMAIL
+          git config user.name $MY_NAME
 
-        latest_tag="${latest_tag#v}"
-        echo "Latest tag: $latest_tag"
-
-        IFS='.' read -ra version <<< "$latest_tag"
-        
-        MAJOR="${version[0]}"
-        MINOR="${version[1]}"
-        PATCH="${version[2]}"
-
-        echo "TAG: $latest_tag"
-        echo "version: ${version[@]}"
-        echo "MAJOR: $MAJOR"
-        echo "MINOR: $MINOR"
-        echo "PATCH: $PATCH"
-
-        PATCH=$((PATCH + 1))
-
-        # Create the new version
-        NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
-      
-        echo "Latest version is: $NEW_VERSION"
-
-        if git rev-parse -q --verify "refs/tags/v$MAJOR.$MINOR.$PATCH" >/dev/null; then
-            git tag -a -m "Incrementing existing version to $MAJOR.$MINOR.$PATCH" "v$MAJOR.$MINOR.$PATCH"
-            git push origin --tags --force  # Force-push the updated tag
-            echo "Existing tag 'v$MAJOR.$MINOR.$PATCH' incremented to $MAJOR.$MINOR.$PATCH"
+          latest_tag=$(git for-each-ref --sort=-creatordate --format='%(refname)' | grep -oP 'refs/tags/v[0-9]+\.[0-9]+\.[0-9]+$' | head -n 1)
+          if [[ -n "$latest_tag" ]]; then
+            latest_tag=$(echo "$latest_tag" | sed 's|^refs/tags/||')  # Remove the 'refs/tags/' prefix
+            echo "Latest tag: $latest_tag"
           else
-            echo "Tag 'v$MAJOR.$MINOR.$PATCH' not found. Creating a new tag."
-        fi
+            echo "No tags found in the desired format"
+            exit 1  # Fail the job if no tags in the desired format are found
+          fi
 
-        # create the new tag 
+          # Ensure that the latest tag matches the expected format
+          if [[ ! "$latest_tag" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Latest tag '$latest_tag' does not match the expected format"
+            exit 1
+          fi
 
-        git tag -a -m "Incrementing patch version to $NEW_VERSION" "$NEW_VERSION"
+          latest_tag="${latest_tag#v}"
+          echo "Latest tag: $latest_tag"
 
-        #push the tags
+          IFS='.' read -ra version <<< "$latest_tag"
 
-        git push origin "$NEW_VERSION"
+          MAJOR="${version[0]}"
+          MINOR="${version[1]}"
+          PATCH="${version[2]}"
+
+          echo "TAG: $latest_tag"
+          echo "version: ${version[@]}"
+          echo "MAJOR: $MAJOR"
+          echo "MINOR: $MINOR"
+          echo "PATCH: $PATCH"
+
+          PATCH=$((PATCH + 1))
+
+          # Increment the existing tag (if it exists)
+          new_version="v$MAJOR.$MINOR.$PATCH"
+          if git rev-parse -q --verify "refs/tags/$new_version" >/dev/null; then
+            git tag -a -m "Incrementing existing version to $MAJOR.$MINOR.$PATCH" "$new_version"
+            git push origin --tags --force  # Force-push the updated tag
+            echo "Existing tag '$new_version' incremented to $MAJOR.$MINOR.$PATCH"
+          else
+            echo "Tag '$new_version' not found. Creating a new tag."
+            # create the new tag
+            git tag -a -m "Incrementing patch version to $MAJOR.$MINOR.$PATCH" "$new_version"
+            # push the new tag
+            git push origin "$new_version"
+            echo "New tag '$new_version' created and pushed."
+          fi
