@@ -61,7 +61,7 @@ jobs:
           PATCH=$((PATCH + 1))
 
           # Increment the existing tag (if it exists)
-          new_version="v$MAJOR.$MINOR.$PATCH"
+          new_version="$MAJOR.$MINOR.$PATCH"
           if git rev-parse -q --verify "refs/tags/$new_version" >/dev/null; then
             git tag -a -m "Incrementing existing version to $MAJOR.$MINOR.$PATCH" "$new_version"
             git push origin --tags --force  # Force-push the updated tag
