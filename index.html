@@ -2,7 +2,6 @@
 <html lang="en" class="font-body-xl-medium">
   <head>
     <meta charset="UTF-8" />
-
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
@@ -28,282 +27,273 @@
     </script>
 
 
-
-
-<link rel="icon" type="image/svg+xml" href="/vite.svg" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Persimmon</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" />
-
-</head>
-<body class="font-body-xl-medium">
-<div id="myModal" class="modal hidden fixed bg-gray-500 mt-0 pt-0 bg-opacity-90 mb-64  flex justify-center items-center">
-  <div class="modal-content flex ml-0 pl-0 mt-0 pt-0 justify-between bg-gray-900 bg-opacity-75 w-screen h-screen text-white p-6 rounded-lg">
-    <div class="text-start w-1/3 ml-0 pl-10 pt-28 pr-10  sm:w-1/6">
-      <div class="pr-6 mt-8 cursor-pointer hover:border-b-4 ">Roadmap</div>
-      <div class=" mt-8 cursor-pointer hover:border-b-4  ">
-        <a href="https://cryptonomic.tech/" target="_blank">About Us</a>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Persimmon</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body class="font-body-xl-medium">
+    <div id="myModal" class="modal hidden bg-gray-500 mt-0 pt-0 bg-opacity-90 mb-64  flex justify-center items-center">
+      <div class="modal-content flex ml-0 pl-0 mt-0 pt-0 justify-between bg-gray-900 bg-opacity-75 w-screen h-screen text-white p-6 rounded-lg">
+        <div class="text-start w-1/3 ml-0 pl-10 pt-28 pr-10  sm:w-1/6">
+          <div class="pr-6 mt-8 cursor-pointer hover:border-b-4 ">Roadmap</div>
+          <div class=" mt-8 cursor-pointer hover:border-b-4  ">About Us</div>
+          <div class="mt-8 cursor-pointer pr-4 hover:border-b-4 " onclick="openEnterprise()">Enterprise</div>
+          <div class="pr-6 mt-8 cursor-pointer hover:border-b-4 ">Help</div>
+          <!-- <button id="closeModalBtn" class="mt-4 text-black w-full bg-gray-300 p-2 rounded-lg">Close</button> -->
+        </div>
+        <div>
+          <img class="w-60 pt-10" alt="" src="./public/MainLogo.png" />
+        </div>
+        <div>
+          <img id="closeModalBtn" src="./public/cross.svg" class="w-10 mr-10 sm:mr-20 cursor-pointer pt-10" alt="">
+          <img src="./public/plus-sign.png" class="w-4 mr-10 sm:mr-20 cursor-pointer pt-44" alt="">
+          <img src="./public/plus-sign.png" class="w-4 mr-10 sm:mr-20 cursor-pointer pt-10" alt="">
+        </div>
       </div>
-      <div class="mt-8 cursor-pointer pr-4 hover:border-b-4 ">
-        <a href="./enterprise.html">Enterprise</a>
-      </div>
-      <div class="pr-6 mt-8 cursor-pointer hover:border-b-4 ">Help</div>
-      <!-- <button id="closeModalBtn" class="mt-4 text-black w-full bg-gray-300 p-2 rounded-lg">Close</button> -->
     </div>
-    <div>
-      <img class="w-60 pt-10" alt="" src="./public/MainLogo.png" />
-    </div>
-    <div>
-      <img id="closeModalBtn" src="./public/cross.svg" class="w-10 mr-10 sm:mr-20 cursor-pointer pt-10" alt="">
-     
-    </div>
-  </div>
-</div>
 
 <div class="">
-<div class="mainDiv m-6 flex flex-col sm:flex justify-between pt-6">
-<div class="sm:flex sm:justify-between md:pl-28">
-  <div class="subDiv flex justify-between">
-    <div class="flex items-center">
-      <img class="w-72" alt="" src="./public/MainLogo.png" />
-    </div>
-    <div>
-      <img
-        id="navThreeLines"
-        class="w-10 sm:hidden cursor-pointer inline"
-        src="./public/navThreeLines.png"
-        alt=""
-      />
-    </div>
-    
-    <div class="hidden xl:flex pl-28 pt-1 text-xl space-x-6">
-      <div class="font-semibold w-32 text-[#111827] pt-2 pr-6">Roadmap</div>
-      <div class="font-semibold w-32 text-[#111827] pt-2 pr-6 hover:underline">
-        <a href="https://cryptonomic.tech/" target="_blank">About Us</a>
+  <div class="mainDiv m-6 flex flex-col sm:flex justify-between pt-6">
+    <div class="sm:flex sm:justify-between md:pl-28">
+      <div class="subDiv flex justify-between">
+        <div class="flex items-center">
+          <img class="w-72" alt="" src="./public/MainLogo.png" />
+        </div>
+        <div>
+          <img
+            id="navThreeLines"
+            class="w-10 sm:hidden cursor-pointer inline"
+            src="./public/navThreeLines.png"
+            alt=""
+          />
+        </div>
+        
+        <div class="hidden xl:flex pl-28 pt-1 text-xl space-x-6">
+          <div class="font-semibold w-32 text-[#111827] pt-2 pr-6">Roadmap</div>
+          <div class="font-semibold w-32 text-[#111827] pt-2 pr-6">About Us</div>
+          <div class="font-semibold w-32 p-2 pl-4 pr-4 border rounded-lg text-white mr-4 bg-[#E16B31]" onclick="openEnterprise()">Enterprise</div>
+          <!-- <div class="text-2xl pr-6">Help</div> -->
+        </div>
       </div>
-      <div class="font-semibold w-32 p-2 pl-4 pr-4 border rounded-lg text-white mr-4 bg-[#E16B31] hover:underline" >
-        <a href="./enterprise.html">Enterprise</a>
-      </div>
-      <!-- <div class="text-2xl pr-6">Help</div> -->
-    </div>
-  </div>
-  <div class="hidden sm:flex sm:flex-row sm:mt-0 xl:pl-96">
-    <!-- <img class="pr-4 mb-4 sm:mb-0" alt="" src="./public/store-badge2.svg" /> -->
-    <!-- <img class="pr-4" alt="" src="./public/store-badge3.svg" /> -->
-  </div>
-  <div>
-    <img
-      id="navThreeLines1"
-      class="w-10 hidden sm:flex xl:hidden cursor-pointer"
-      src="./public/navThreeLines.png"
-      alt=""
-    />
-  </div>
-</div>
-<div class="xl:flex xl:justify-around mt-10 bg-[#FFFDF9]">
-  <div class="xl:flex xl:w-4/6 xl:justify-between xl:pl-20 xl:mt-10">
-    <div class="header mt-20 m-2 text-left md:text-center xl:text-left">
-      <h1 class="text-5xl md:text-8xl text-[#111827] font-bold">Simple and reliable</h1>
-      <h1 class="text-5xl md:text-8xl text-[#111827] font-bold">alerts for your digital</h1>
-      <h1 class="text-5xl md:text-8xl text-[#111827] font-bold">assets</h1>
-      <div class="text-2xl text-[#374151] mt-4">
-        Stay informed about activity in your Ethereum, Bitcoin, and Tezos accounts.
-      </div>
-      <div class="text-2xl text-[#374151] ">
-        Persimmon lets you receive timely alerts without having to open your
-      </div>
-      <div class="text-2xl text-[#374151] ">
-        wallet.
+      <div class="hidden sm:flex sm:flex-row sm:mt-0 xl:pl-96">
+        <!-- <img class="pr-4 mb-4 sm:mb-0" alt="" src="./public/store-badge2.svg" /> -->
+        <!-- <img class="pr-4" alt="" src="./public/store-badge3.svg" /> -->
       </div>
       <div>
-    <img class="pr-4 pt-10 w-60 hidden xl:block" alt="" src="./public/store-badge3.svg" />
+        <img
+          id="navThreeLines1"
+          class="w-10 hidden sm:flex xl:hidden cursor-pointer"
+          src="./public/navThreeLines.png"
+          alt=""
+        />
       </div>
     </div>
-    <div class="flex mt-6 md:justify-center xl:hidden space-x-4 pb-20 pt-10">
-      <!-- <img class="pr-4 w-60" alt="" src="./public/store-badge2.svg" /> -->
-      <img class="pr-4 w-60" alt="" src="./public/store-badge3.svg" />
+    <div class="xl:flex xl:justify-around mt-10 bg-[#FFFDF9]">
+      <div class="xl:flex xl:w-4/6 xl:justify-between xl:pl-20 xl:mt-10">
+        <div class="header mt-20 m-2 text-left md:text-center xl:text-left">
+          <h1 class="text-5xl md:text-8xl text-[#111827] font-bold">Simple and reliable <span class="md:hidden">alerts for your digital assets</span></h1>
+          <h1 class="text-5xl md:text-8xl text-[#111827] font-bold hidden md:block">alerts for your digital</h1>
+          <h1 class="text-5xl md:text-8xl text-[#111827] font-bold hidden md:block">assets</h1>
+          <div class="text-2xl text-[#374151] mt-4">
+            Stay informed about activity in your Ethereum, Bitcoin, and Tezos accounts. <span class="lg:hidden">Persimmon lets you receive timely alerts without having to open your wallet.</span>
+          </div>
+          <div class="text-2xl hidden lg:block text-[#374151] ">
+            Persimmon lets you receive timely alerts without having to open your
+          </div>
+          <div class="text-2xl hidden lg:block text-[#374151] ">
+            wallet.
+          </div>
+          <div>
+        <img class="pr-4 pt-10 w-60 hidden xl:block" alt="" src="./public/store-badge3.svg" />
+          </div>
+        </div>
+        <div class="flex mt-6 md:justify-center xl:hidden space-x-4 pb-20 pt-10">
+          <!-- <img class="pr-4 w-60" alt="" src="./public/store-badge2.svg" /> -->
+          <img class="pr-4 w-60" alt="" src="./public/store-badge3.svg" />
+        </div>
+      </div>
+      <div class="phone-mockup flex xl:pr-40 justify-center items-center">
+        <div class="mobile relative flex flex-col justify-center">
+          <img class="mt-5 w-[368px] z-20" alt="" src="./public/iphone-x@2x.png" />
+          <img class="absolute w-80 top-10 left-6 z-10" alt="" src="./public/screen@2x.png" />
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="phone-mockup flex xl:pr-40 justify-center items-center">
-    <div class="mobile relative flex flex-col justify-center">
-      <img class="mt-5 w-[368px] z-20" alt="" src="./public/iphone-x@2x.png" />
-      <img class="absolute w-80 top-10 left-6 z-10" alt="" src="./public/screen@2x.png" />
+    
+    
+    <div class="brought-to-you-by-parent inline-flex items-center justify-center mt-20 mb-20 sm:mb-32 space-x-2">
+      <h3 class="sm:text-xl text-[#111827]">Brought to you by</h3>
+      <img class="w-28 sm:w-40" alt="" src="./public/cryptonomiclogo-1@2x.png" />
     </div>
-  </div>
 </div>
-
-
-<div class="brought-to-you-by-parent inline-flex items-center justify-center mt-20 mb-32 space-x-2">
-  <h3 class="sm:text-xl text-[#111827]">Brought to you by</h3>
-  <img class="w-28 sm:w-40" alt="" src="./public/cryptonomiclogo-1@2x.png" />
-</div>
-</div>
-  <div class="features-12">
-    <div class="section-heading text-center mt-10 mb-10">
-      <b class="text-6xl text-[#111827]">Persimmon’s Features</b>
-      <div class="mt-4 text-[#374151]  text-2xl">
-        Persimmon allows you to register any address and receive notifications for it. You won’t <span class="xl:hidden">need to constantly log into your wallet or a block explorer.</span>
-      </div>
-      <div class="text-2xl hidden xl:block text-[#374151] ">
-        need to constantly log into your wallet or a block explorer.
+      <div class="features-12">
+        <div class="section-heading p-6 text-center mt-10 mb-10">
+          <b class="text-6xl text-[#111827]">Persimmon’s Features</b>
+          <div class="mt-4  text-[#374151]  text-2xl">
+            Persimmon allows you to register any address and receive notifications for it. You won’t <span class="xl:hidden">need to constantly log into your wallet or a block explorer.</span>
+          </div>
+          <div class="text-2xl hidden xl:block text-[#374151] ">
+            need to constantly log into your wallet or a block explorer.
+          </div>
+        </div>
+        <div class="container1 mb-20 ">
+          <div class="text-center space-x-4 p-8 pt-0 min-[820px]:flex min-[820px]:justify-evenly xl:flex">
+            <div class="feature-item flex flex-col items-center">
+              <img class="mb-6 sm:mt-10" alt="" src="./public/persimmon-features.svg" />
+              <div class="content1">
+                <b class="text-3xl text-[#111827]">Multi-Platform Support</b>
+                <div class="pt-2 text-[#374151]  text-xl">
+                  Get alerts for any Ethereum, Bitcoin, and  <span class="xl:hidden">Tezos account all in the same app.</span>
+                </div>
+                <div class="text-xl hidden xl:block text-[#374151] ">
+                  Tezos account all in the same app.
+                </div>
+              </div>
+            </div>
+            <div class="feature-item1 flex flex-col items-center">
+              <img class="mt-10 mb-6" alt="" src="./public/persimmon-features1.svg" />
+              <div class="content1">
+                <b class="text-3xl text-[#111827]">Additional Security</b>
+                <div class="pt-2 text-[#374151]  text-xl">
+                  Be notified of changes to your accounts to <span class="xl:hidden">prevent missing out on potential security beach events.</span>
+                </div>
+                <div class="text-xl hidden xl:block text-[#374151] ">
+                  prevent missing out on potential security
+                </div>
+                <div class="text-xl hidden xl:block text-[#374151] ">
+                  beach events.
+                </div>
+              </div>
+            </div>
+            <div class="feature-item hidden xl:flex flex-col items-center">
+              <img class="mt-10 mb-6" alt="" src="./public/persimmon-features2.svg" />
+              <div class="content1">
+                <b class="text-3xl text-[#111827]">Custom Alerts</b>
+                <div class="pt-2 text-[#374151]  text-xl">
+                  Receive custom alerts for things like changes <span class="xl:hidden">to staking yields or DeFi activity.</span>
+                </div>
+                <div class="text-xl hidden xl:block text-[#374151] ">
+                  to staking yields or DeFi activity.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>            <div class="feature-item p-8 pt-4 flex xl:hidden flex-col items-center">
+            <img class=" mb-6" alt="" src="./public/persimmon-features2.svg" />
+            <div class="content1 text-center">
+              <b class="text-3xl text-[#111827]">Custom Alerts</b>
+              <div class="pt-2 text-xl text-[#374151]">
+                Receive custom alerts for things like changes <span class="xl:hidden">to staking yields or DeFi activity.</span>
+              </div>
+              <div class="text-xl hidden xl:block text-[#374151]">
+                to staking yields or DeFi activity.
+              </div>
+            </div>
+          </div></div>
+          
+        </div>
       </div>
     </div>
-    <div class="container1 mb-20 ">
-      <div class="text-center space-x-4 min-[820px]:flex min-[820px]:justify-evenly xl:flex">
-        <div class="feature-item flex flex-col items-center">
-          <img class="mt-10 mb-6" alt="" src="./public/persimmon-features.svg" />
-          <div class="content1">
-            <b class="text-3xl text-[#111827]">Multi-Platform Support</b>
-            <div class="pt-2 text-[#374151]  text-xl">
-              Get alerts for any Ethereum, Bitcoin, and  <span class="hidden">Tezos account all in the same app.</span>
-            </div>
-            <div class="text-xl text-[#374151] ">
-              Tezos account all in the same app.
-            </div>
+    <div class="">
+      <div class="bg-[#111827] text-white flex flex-col justify-center pt-10 pl-6 lg:flex lg:flex-row lg:h-[28rem] lg:justify-around items-center">
+        <div class="section-heading1">
+          <b class="text-3xl sm:text-4xl xl:flex lg:ml-28 xl:text-7xl">Made by Cryptonomic</b>
+          <div class="description lg:w-2/3 lg:ml-28">
+            <p class="pt-6 text-start xl:text-2xl">
+              Founded in 2017, Cryptonomic is an NYC-based company committed to decentralization and digital sovereignty
+            </p>
+            <p class="blank-line">&nbsp;</p>
+            <p class="text-start pt-6 xl:text-2xl">
+              Our team has deep expertise in building sophisticated, mission-critical finance applications
+            </p>
           </div>
         </div>
-        <div class="feature-item1 flex flex-col items-center">
-          <img class="mt-10 mb-6" alt="" src="./public/persimmon-features1.svg" />
-          <div class="content1">
-            <b class="text-3xl text-[#111827]">Additional Security</b>
-            <div class="pt-2 text-[#374151]  text-xl">
-              Be notified of changes to your accounts to
-            </div>
-            <div class="text-xl text-[#374151] ">
-              prevent missing out on potential security
-            </div>
-            <div class="text-xl text-[#374151] ">
-              beach events.
-            </div>
-          </div>
-        </div>
-        <div class="feature-item hidden xl:flex flex-col items-center">
-          <img class="mt-10 mb-6" alt="" src="./public/persimmon-features2.svg" />
-          <div class="content1">
-            <b class="text-3xl text-[#111827]">Custom Alerts</b>
-            <div class="pt-2 text-[#374151]  text-xl">
-              Receive custom alerts for things like changes
-            </div>
-            <div class="text-xl text-[#374151] ">
-              to staking yields or DeFi activity.
-            </div>
-          </div>
-        </div>
+        <img class="cryptonomic-logo-1-icon mb-10 mt-10 w-96 xl:w-[40rem] lg:mr-28 lg:mb-4" alt="" src="./public/cryptonomic-logo-1.svg" />
       </div>
-      <div>            <div class="feature-item flex xl:hidden flex-col items-center">
-        <img class="mt-10 mb-6" alt="" src="./public/persimmon-features2.svg" />
-        <div class="content1 text-center">
-          <b class="text-3xl">Custom Alerts</b>
-          <div class="pt-2 text-xl">
-            Receive custom alerts for things like changes
-          </div>
-          <div class="pt-2 text-xl">
-            to staking yields or DeFi activity.
-          </div>
-        </div>
-      </div></div>
       
-    </div>
-  </div>
-</div>
-<div class="">
-  <div class="bg-[#111827] text-white flex flex-col justify-center pt-10 pl-6 lg:flex lg:flex-row lg:h-[28rem] lg:justify-around items-center">
-    <div class="section-heading1">
-      <b class="text-3xl sm:text-4xl xl:flex lg:ml-28 xl:text-7xl">Made by Cryptonomic</b>
-      <div class="description lg:w-2/3 lg:ml-28">
-        <p class="pt-6 text-start xl:text-2xl">
-          Founded in 2017, Cryptonomic is an NYC-based company committed to decentralization and digital sovereignty
-        </p>
-        <p class="blank-line">&nbsp;</p>
-        <p class="text-start pt-6 xl:text-2xl">
-          Our team has deep expertise in building sophisticated, mission-critical finance applications
-        </p>
+      <div class="bg-black text-white p-6 sm:flex sm:justify-between md:h-[18rem] pt-16 sm:pl-20 sm:pr-10">
+        <div class="left-section">
+          <div class="logo-child"></div>
+          <div class="links">
+            <div>
+              <img src="./public/logo.png" class="w-8 pt-4" alt="">
+            </div>
+            <div class="flex justify-between mt-4  sm:mr-16 mr-20 lg:mr-0">
+              <div class="roadmap">Roadmap</div>
+              <div class="roadmap">About Us</div>
+              <div class="roadmap">Enterprise</div>
+            </div>
+          </div>
+          <div class="mt-8 text-[#D1D5DB]">
+            © 2023 Persimmon Alerts. All rights reserved.
+          </div>
+        </div>
+        <div class="mt-8 mr-20 pb-4">
+          <div class="get-the-app text-xl font-semibold text-[#D1D5DB]">Get the App</div>
+          <img class="store-badge-icon2 w-44 mt-4" alt="" src="./public/store-badge4.svg" />
+          <!-- <img class="store-badge-icon2 mt-4" alt="" src="./public/store-badge5.svg" /> -->
+        </div>
       </div>
     </div>
-    <img class="cryptonomic-logo-1-icon mb-10 mt-10 w-96 xl:w-[40rem] lg:mr-28 lg:mb-4" alt="" src="./public/cryptonomic-logo-1.svg" />
-  </div>
+
+   <!-- Add the following script inside the <script> tag or in a separate script file -->
+<!-- Add the following script inside the <script> tag or in a separate script file -->
+
+<!-- Add the following script inside the <script> tag or in a separate script file -->
+
+  <script>
+    const navThreeLines = document.getElementById('navThreeLines');
+    const navThreeLines1 = document.getElementById('navThreeLines1');
+    const myModal = document.getElementById('myModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const closeModalBtn1 = document.getElementById('closeModalBtn1');
+    const phoneMockupSection = document.querySelector('.phone-mockup');
   
-  <div class="bg-black text-white sm:flex sm:justify-between md:h-[18rem] pt-16 sm:pl-20 sm:pr-10">
-    <div class="left-section">
-      <div class="logo-child"></div>
-      <div class="links">
-        <div>
-          <img src="./public/logo.png" class="w-8 pt-4" alt="">
-        </div>
-        <div class="flex justify-between mt-4">
-          <div class="roadmap">Roadmap</div>
-          <div class="roadmap">About Us</div>
-          <div class="roadmap">Enterprise</div>
-        </div>
-      </div>
-      <div class="mt-8 text-[#D1D5DB]">
-        © 2023 Persimmon Alerts. All rights reserved.
-      </div>
-    </div>
-    <div class="mt-8 mr-20 pb-4">
-      <div class="get-the-app text-xl font-semibold text-[#D1D5DB]">Get the App</div>
-      <img class="store-badge-icon2 w-44 mt-4" alt="" src="./public/store-badge4.svg" />
-      <!-- <img class="store-badge-icon2 mt-4" alt="" src="./public/store-badge5.svg" /> -->
-    </div>
-  </div>
-</div>
+    function openEnterprise() {
+            // Check your condition here
+            // var conditionMet = true; 
 
-<!-- Add the following script inside the <script> tag or in a separate script file -->
-<!-- Add the following script inside the <script> tag or in a separate script file -->
-
-<!-- Add the following script inside the <script> tag or in a separate script file -->
-
-<script>
-const navThreeLines = document.getElementById('navThreeLines');
-const navThreeLines1 = document.getElementById('navThreeLines1');
-const myModal = document.getElementById('myModal');
-const closeModalBtn = document.getElementById('closeModalBtn');
-const closeModalBtn1 = document.getElementById('closeModalBtn1');
-const phoneMockupSection = document.querySelector('.phone-mockup');
-
-function openEnterprise() {
-        // Check your condition here
-        // var conditionMet = true; 
-
-        // if (conditionMet) {
-            // If condition is met, open the next page
-            window.location.href = 'Enterprise.html';
-        // } else {
-        //     // If condition is not met, you can show an alert or take other actions
-        //     alert('Condition not met. Page will not be opened.');
-        // }
-    }
-const toggleNavVisibility = () => {
-  navThreeLines.style.display = navThreeLines.style.display === 'none' ? '' : 'none';
-  navThreeLines1.style.display = navThreeLines1.style.display === 'none' ? '' : 'none';
-};
-
-navThreeLines.addEventListener('click', () => {
-  myModal.classList.remove('hidden');
-  phoneMockupSection.classList.add('hidden');
-  toggleNavVisibility();
-});
-
-navThreeLines1.addEventListener('click', () => {
-  myModal.classList.remove('hidden');
-  phoneMockupSection.classList.add('hidden');
-  toggleNavVisibility();
-});
-
-closeModalBtn.addEventListener('click', () => {
-  myModal.classList.add('hidden');
-  phoneMockupSection.classList.remove('hidden');
-  toggleNavVisibility();
-});
-
-closeModalBtn1.addEventListener('click', () => {
-  myModal.classList.add('hidden');
-  phoneMockupSection.classList.remove('hidden');
-  toggleNavVisibility();
-});
-</script>
-
-
-</body>
+            // if (conditionMet) {
+                // If condition is met, open the next page
+                window.location.href = 'Enterprise.html';
+            // } else {
+            //     // If condition is not met, you can show an alert or take other actions
+            //     alert('Condition not met. Page will not be opened.');
+            // }
+        }
+    const toggleNavVisibility = () => {
+      navThreeLines.style.display = navThreeLines.style.display === 'none' ? '' : 'none';
+      navThreeLines1.style.display = navThreeLines1.style.display === 'none' ? '' : 'none';
+    };
+  
+    navThreeLines.addEventListener('click', () => {
+      myModal.classList.remove('hidden');
+      phoneMockupSection.classList.add('hidden');
+      toggleNavVisibility();
+    });
+  
+    navThreeLines1.addEventListener('click', () => {
+      myModal.classList.remove('hidden');
+      phoneMockupSection.classList.add('hidden');
+      toggleNavVisibility();
+    });
+  
+    closeModalBtn.addEventListener('click', () => {
+      myModal.classList.add('hidden');
+      phoneMockupSection.classList.remove('hidden');
+      toggleNavVisibility();
+    });
+  
+    closeModalBtn1.addEventListener('click', () => {
+      myModal.classList.add('hidden');
+      phoneMockupSection.classList.remove('hidden');
+      toggleNavVisibility();
+    });
+  </script>
+  
+  
+  </body>
 </html>
